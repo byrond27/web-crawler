@@ -3,8 +3,8 @@ import re
 import requests
 from bs4 import BeautifulSoup
 
-from src.modules.topic.domain.Topic import Topic
-from src.modules.topicsList.domain.CrawlerRepository import crawlerRepository
+from src.topic.domain.Topic import Topic
+from src.topicsList.domain.CrawlerRepository import crawlerRepository
 
 
 class soupCrawler(crawlerRepository):
@@ -13,30 +13,7 @@ class soupCrawler(crawlerRepository):
         self.URL = 'https://news.ycombinator.com/'
         pass
 
-    @staticmethod
-    def filterMoreThanFiveWords(topics):
-        filteredTopics = []
-        for topic in topics:
-            if len(topic.title.split()) > 5:
-                filteredTopics.append(topic)
-        return filteredTopics
-
-    @staticmethod
-    def filterMoreLessAndEqualFiveWords(topics):
-        filteredTopics = []
-        for topic in topics:
-            if len(topic.title.split()) <= 5:
-                filteredTopics.append(topic)
-        return filteredTopics
-
-    @staticmethod
-    def sortedByComments(topics):
-        return sorted(topics, key=lambda x: x.comments, reverse=True)
-
-    @staticmethod
-    def sortedByPoints(topics):
-        return sorted(topics, key=lambda x: x.points, reverse=True)
-
+    @property
     def getTopics(self):
 
         page = self.getRequest()
