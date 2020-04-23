@@ -9,7 +9,7 @@ from src.topicsList.domain.CrawlerRepository import crawlerRepository
 
 class soupCrawler(crawlerRepository):
     def __init__(self):
-        self.limitOfEntries = 10;
+        self.limitOfEntries = 30
         self.URL = 'https://news.ycombinator.com/'
         pass
 
@@ -45,7 +45,11 @@ class soupCrawler(crawlerRepository):
         return topic.find("span", class_="rank").getText().replace(".", "")
 
     def getPoints(self, soup, topicId):
-        return soup.find(id="score_" + topicId).getText().replace(" points", '')
+        points = soup.find(id="score_" + topicId)
+        if points is None:
+            return "0"
+        points = points.getText().replace(" points", '')
+        return points
 
     def getComments(self, soup, topicId):
         comments = soup.find("a", href="item?id=" + topicId, text=re.compile('comment'))

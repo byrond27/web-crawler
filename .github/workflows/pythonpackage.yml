@@ -37,3 +37,5 @@ jobs:
     - name: Test with pytest
       run: |
         python3 -m unittest tests/test_crawler.py
+    - name: Run App
+        python3 src/application/Scraper.py
