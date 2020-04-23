@@ -1,4 +1,4 @@
-#Web Crawler
+# Web Crawler
 
 ![Python package](https://github.com/byrond27/web-crawler/workflows/Python%20package/badge.svg?branch=master)
 ![Python package](https://github.com/byrond27/web-crawler/workflows/Python%20package/badge.svg?branch=develop)
