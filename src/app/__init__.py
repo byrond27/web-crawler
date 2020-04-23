@@ -1,9 +1,9 @@
-from src.modules.topicsList.application.Crawler import Crawler
+from src.modules.topicsList.infrastructure.SoupCrawler import soupCrawler
 from src.modules.topicsList.domain.TopicsList import TopicsList
 
 
 def Main():
-    crawler = Crawler()
+    crawler = soupCrawler()
     topics = crawler.getTopics()
     TopicsList(topics).printList()
     print("More")
