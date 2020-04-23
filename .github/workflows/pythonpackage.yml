@@ -39,5 +39,5 @@ jobs:
         python3 -m unittest tests/test_crawler.py
     - name: Run App
       run: |
-        PYTHONPATH "${PYTHONPATH}:/usr/lib/python3"
+        echo "::set-env name=PYTHONPATH::home/runner/work/web-crawler"
         python3 src/application/Scraper.py
